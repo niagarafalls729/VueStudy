@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 이렇게는 거의 안쓴다ㅏㅎㅁ . -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Book></Book>
+        <Book></Book>
+        <Book></Book>
+    </div>
+    <script>
+        const BookComponet = {
+            template: `
+                        <article class="book">
+                        <div class="book__subtitle">{{ subtitle }}gg</div>
+                        </article>
+                      `,
+        };
+        const app = Vue.createApp({});
+        app.component("Book", BookComponet);
+        app.mount('#app')
+
+
+    </script>
+
+
+
+</body>
+
+</html>
