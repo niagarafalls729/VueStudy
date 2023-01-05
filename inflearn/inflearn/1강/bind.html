@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <input type="text"  v-bind:placeholder="message">
+        <hr>
+        <button type="button" v-on:click="hello">BTN</button>
+        <button type="button" v-on:click="reverseMessage">BTN</button>
+        <hr>
+        <!-- //단방향 -->
+        <input type="text" v-bind:value="userName"/>
+        <!-- //양방향 -->
+        <br>
+        <p>{{userName2}}</p>
+        <input type="text" v-model="userName2"/>
+        <hr>
+        <p v-if="visible">if true</p>
+        <p v-else="visible">if false</p>
+        <p  >{{visible}}</p>
+        <button type="button" v-on:click="setVisible()">setVisible</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    message  : " 값을 입력해주세요!!!",
+                    userName : "김지수",
+                    userName2 : "김지수2",
+                    visible : true ,
+                };
+            },
+            methods: {
+                hello() {
+                    alert("HELLO")
+                },
+                reverseMessage(){
+                    this.message = this.message.split("").reverse().join("");
+                },
+                setVisible(){
+                    this.visible = !this.visible;
+                },
+            }
+
+        });
+        app.mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div v-if="counter == 0" style="display:inline-block; position:absolute; top:100px; left:100px; z-index:999999; width:400px; border: 1px solid red;" > 
+        <div class="contents"> 
+            
+          <div>
+            <h1>㈜ 카플릭스 홈페이지</h1>
+            <hr>
+            <h3>오픈 준비중 입니다.</h3>
+            <span>카플릭스에서 보다 나은 서비스를 위해</span><br>
+            <span>홈페이지가 새 단장 중에 있습니다.</span><br>
+            <span>좋은 모습으로 찾아 뵙겠습니다</span><br>
+            <span>감사합니다. </span><br>
+           
+          </div>
+          <div>
+            <img src="https://zzimcar-prod.s3.ap-northeast-2.amazonaws.com/zzimcar/direct-skin/logo/carflix_logo_color_20220921_095947.png"> 
+          </div>
+          
+        </div> 
+        <div class="footer-td" height:20px;"> 
+            <button type="button" v-on:click="fn_click"> 닫기 </button>
+        </div> 
+     </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    counter:0,
+                };
+            },
+            methods: {
+                fn_click(){ 
+                    this.counter = this.counter+1
+                }
+            },
+        });
+        
+        app.mount("#counter");
+    </script>
+</body>
+</html>
