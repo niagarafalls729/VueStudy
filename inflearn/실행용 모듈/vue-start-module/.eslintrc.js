@@ -17,5 +17,6 @@ module.exports = {
     'vue',
   ],
   'rules': {
+    'linebreak-style': 0,
   },
 };

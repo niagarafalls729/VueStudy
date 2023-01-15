@@ -19,20 +19,7 @@
     <button v-on:click="btnComputed">computed</button>
 
     <hr />
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
+    <div :style="sytleObj">sytleObj 텍스트 .</div>
     <button v-on:click="fontUp">font Size Up</button>
     <button v-on:click="fontDown">font Size Down</button>
 
@@ -116,30 +103,23 @@ export default {
       get() {
         return {
           color: 'red',
-          fontSize: fontSizeRef,
+          fontSize: fontSizeRef.value+'px',
         };
       },
       set(props) {
-        console.log('PROPS!', JSON.stringify(props));
-        console.log(sytleObj.value);
         sytleObj.value.fontSize = fontSizeRef;
       },
     });
 
     const fontUp = () => {
-      console.log('fontUp', fontSizeRef);
       fontSizeRef.value++;
-      sytleObj.value = fontSizeRef;
     };
     const fontDown = () => {
-      console.log('fontDown', fontSizeRef);
       fontSizeRef.value--;
-
-      sytleObj.value = fontSizeRef;
     };
 
     // eslint-disable-next-line max-len
-    return {rtnValue, btnToggle, textValue, classObj, btnOBJToggle, computed, btnComputed, computedActive, computedTextTest, sytleObj, fontDown, fontUp};
+    return {rtnValue, btnToggle, textValue, classObj, btnOBJToggle, computed, btnComputed, computedActive, computedTextTest, sytleObj, fontDown, fontUp, fontSizeRef};
   },
 };
 </script>
