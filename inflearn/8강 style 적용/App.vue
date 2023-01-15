@@ -3,38 +3,16 @@
   <div>
     <!-- <div v-bind:class ="{}"></div> -->
     <!-- class에 - 같은 문자가 들어갈경우 ' 로 감싸줘야함 -->
-    <div :class="{ active: rtnValue, 'text-test': textValue }">
-      텍스트입니다.
-    </div>
+    <div :class ="{ active: rtnValue , 'text-test' : textValue}">텍스트입니다.</div>
     <button v-on:click="btnToggle">btnToggle</button>
-    <hr />
+    <hr/>
 
-    <div :class="classObj">OBJ 텍스트 .</div>
+    <div :class ="classObj">OBJ 텍스트 .</div>
     <button v-on:click="btnOBJToggle">btnOBJToggle</button>
 
-    <hr />
-    <div :class="{ active: computedActive, 'text-test': computedTextTest }">
-      computed 텍스트 .
-    </div>
+    <hr/>
+    <div :class ="{active : computedActive , 'text-test': computedTextTest}">computed 텍스트 .</div>
     <button v-on:click="btnComputed">computed</button>
-
-    <hr />
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
-    <div :class="sytleObj">sytleObj 텍스트 .</div>
-    <button v-on:click="fontUp">font Size Up</button>
-    <button v-on:click="fontDown">font Size Down</button>
 
   </div>
 </template>
@@ -103,58 +81,26 @@ export default {
       computedOBJ.value = [computedActive, computedTextTest];
     };
 
-    // -------------------------------------------------------------------//
-    // const sytleObj = reactive({
-    //   color: 'red',
-    //   FontSize: '13px',
-
-    // });
-
-    const fontSizeRef = ref(13);
-
-    const sytleObj = computed({
-      get() {
-        return {
-          color: 'red',
-          fontSize: fontSizeRef,
-        };
-      },
-      set(props) {
-        console.log('PROPS!', JSON.stringify(props));
-        console.log(sytleObj.value);
-        sytleObj.value.fontSize = fontSizeRef;
-      },
-    });
-
-    const fontUp = () => {
-      console.log('fontUp', fontSizeRef);
-      fontSizeRef.value++;
-      sytleObj.value = fontSizeRef;
-    };
-    const fontDown = () => {
-      console.log('fontDown', fontSizeRef);
-      fontSizeRef.value--;
-
-      sytleObj.value = fontSizeRef;
-    };
 
     // eslint-disable-next-line max-len
-    return {rtnValue, btnToggle, textValue, classObj, btnOBJToggle, computed, btnComputed, computedActive, computedTextTest, sytleObj, fontDown, fontUp};
+    return {rtnValue, btnToggle, textValue, classObj, btnOBJToggle, computed, btnComputed, computedActive, computedTextTest};
   },
 };
 </script>
 
 <style scoped>
-.active {
-  font-weight: 900;
+
+.active{
+font-weight: 900;
+
 }
-.text-test {
-  color: red;
+.text-test{
+  color : red;
 }
-.OBJactive {
+.OBJactive{
   font-style: italic;
 }
-.OBJtextTest {
-  color: blue;
+.OBJtextTest{
+  color : blue;
 }
 </style>
