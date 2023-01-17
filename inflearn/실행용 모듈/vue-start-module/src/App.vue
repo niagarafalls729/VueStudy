@@ -1,55 +1,47 @@
 <template>
   <h1>test dd</h1>
-  <div id="modifiers">
-    <div @click="spanDiv">
-      DIV 영역
-        <p @click="spanP">p영역
-          <span @click.stop="spanCK('span',$event)">span 태그 </span>
-          <span @click="spanCK('span',$event)">span 이벤트 </span>
-          <span @click="spanCK2('span',$event)">span 버블효과</span>
-          <a href ="https://naver.com" @click="spanA">naver 버블</a>
-          <a href ="https://naver.com" @click.prevent.stop="spanA">naver 버블</a>
-        </p>
-    </div>
-    <a href ="https://naver.com" @click.prevent="spanA2" > naver</a>
+  <div>
+    <input type="text" @keyup="addTodo"/>
+    <ul>
+      <li v-for="(todo,index) in todos" :key="index">
+         {{ todo.title }} {{ todo }}
+      </li>
+    </ul>
   </div>
-
+  <button @click="btn"></button>
 </template>
 <script>
-import {ref} from 'vue';
+import {reactive, ref} from 'vue';
 
 export default {
-/* stop 을 안하면 ck 이벤트 타면서 다 탐 */
-/* - `.stop` = `e.stopPropagation()` 상위 이벤트 막기 버블 효과 제거 .
-- `.prevent` = `e.preventDefault()` 기본기능막기
-- `.capture` = 캡처 모드를 사용할 때 이벤트 리스너를 사용 가능합니다.
-- `.self` = 오로지 자기 자신만 호출할 수 있다. 즉, 타깃요소가 `self`일 때 발동된다.
-- `.once` = 해당 이벤트는 **한 번만** 실행된다.
-- `.passive` = 일반적으로 **[모바일 장치의 성능을 개선](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners)** 하기 위해 터치 이벤트 리스너와 함께 사용됩니다
-.*/
   setup() {
-    const spanDiv = ( ) =>{
-      console.log('spanDiv');
-      location.href='https://naver.com';
+    const todos = reactive([
+      {title: '1번'},
+      {title: '2번'},
+      {title: '3번'},
+      {title: '4번'},
+      {title: '5번'},
+
+    ]);
+    const btn = () =>{
+      console.log('D');
     };
-    const spanP = () =>{
-      console.log('spanP');
-    };
-    const spanCK =(msg, event)=>{
-      console.log('spanCK');
-      event.stopPropagation();
-    };
-    const spanCK2 =(msg, event)=>{
-      console.log('spanCK');
-    };
-    const spanA =(msg, event)=>{
-      console.log('spanA');
-    };
-    const spanA2 =(msg, event)=>{
-      console.log('spanA2');
+    const addTodo = (e) => {
+      // e.target.value;
+      // 이렇게 if 써도 되고 태그 자체에
+      // <input type="text" @keyup.enter="addTodo"/>
+      // 로도 가능함.
+
+      // ex))) @keyup.ctrl.enter 로 하면 두개 동시에 눌러야 작동함.
+      if (e.key ==='Enter') {
+        console.log(e.key);
+        todos.push({title: e.target.value} );
+        e.target.value ='';
+        e.target.focus();
+      }
     };
     return {
-      spanDiv, spanP, spanCK, spanCK2, spanA2, spanA,
+      todos, addTodo, btn,
     };
   },
   mounted() {
@@ -57,19 +49,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-  #modifiers div,
-  #modifiers p,
-  #modifiers span,
-  #modifiers div {
-    background-color: red;
-  }
-  #modifiers p {
-    background-color: blue;
-  }
-  #modifiers span {
-    background-color: yellow;
-    display: block
-  }
-</style>
 
