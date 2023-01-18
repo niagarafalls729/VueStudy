@@ -1,20 +1,20 @@
 <template>
-  <h1>test dd</h1>
-  
+  <div>
+
+  </div>
 </template>
+
 <script>
 import {ref} from 'vue';
-
 export default {
-  setup() {
+  setup () {
     
-    return {
-     
-    }
-  },
-  mounted() {
 
-  },
-};
+    return {}
+  }
+}
 </script>
 
+<style lang="scss" scoped>
+
+</style>
