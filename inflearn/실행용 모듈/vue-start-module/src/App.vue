@@ -1,42 +1,20 @@
 <template>
   <div>
-    <form @submit.prevent="save(title,contents)">
-       <input v-model="title" type="text" placeholder="title"/>
-       <textarea v-model="contents" placeholder="contents"></textarea>
-       <hr/>
-      <button>btn</button>
-    </form>
+    <TheNav></TheNav>
+    <TheView></TheView>
   </div>
 </template>
 
 <script>
-import {ref} from 'vue';
-import {watchEffect} from 'vue';
+import TheNav from "./components/TheNav.vue";
+import TheView from "./components/TheView.vue";
 export default {
-
-
-  // watch , watchEffect 차이점은 watch는 옵션안주면 처음 실행안함
-  // watch 는 감시할 객체 선정해야함 watchEfect는 다 감시해서 ... 이건 잘 못 쓴다면 매우 문제일듯 ?
+  components: { TheNav, TheView },
   setup() {
-    const title =ref('');
-    const contents =ref('');
-
-    const save =(title, contents) =>{
-      console.log(`title ${title}` );
-      console.log('contents', contents);
-    };
-    watchEffect(()=>{
-      console.log('watchEffect');
-      console.log(title.value);
-      console.log(contents.value);
-      // save(title.value, contents.value);
-    });
-
-    return {title, contents, save};
+    return {};
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>
