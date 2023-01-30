@@ -1,11 +1,8 @@
 <template>
-  <div>
-
-  </div>
 </template>
 
 <script>
-import { onBeforeMount, onMounted } from 'vue';
+import { onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue';
 export default {
   setup() {
     console.log('[child~] setup');
@@ -14,6 +11,12 @@ export default {
     });
     onMounted(() => {
       console.log('[child~] onMounted');
+    });
+    onBeforeUnmount(() => {
+      console.log('[child~] onBeforeUnmount');
+    });
+    onUnmounted(() => {
+      console.log('[child~] onUnmounted');
     });
     return {};
   },
