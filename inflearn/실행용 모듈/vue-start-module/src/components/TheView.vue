@@ -1,24 +1,20 @@
 <template>
   <main>
-    <div class="container py-4">
-      <Mybtn @click="sayHi" class="cldclclclc" id="dididididdid"></Mybtn>
-    </div>
+
+      <ProvideInject></ProvideInject>
+
   </main>
 </template>
 
 <script>
+import ProvideInject from './ProvideInject.vue';
 
-import Mybtn from './MyBtn.vue';
 export default {
   components: {
-    Mybtn,
+    ProvideInject,
   },
-
   setup() {
-    const sayHi = () => {
-      console.log('hi');
-    };
-    return {sayHi};
+    return {};
   },
 };
 </script>

@@ -5,9 +5,9 @@
       <hr/>
       <div class="row g-3">
         <div v-for="(post, idx) in posts" :key=post.id class="col">
-          <PostItem :title="post.title" :contents="post.contents" :type="post.type" :is-like="post.isLike"
+          <AppCard :title="post.title" :contents="post.contents" :type="post.type" :is-like="post.isLike"
             @toggleLike="toggleLikeOfSun(post)">
-          </PostItem>
+          </AppCard>
           <!-- 부모에서는 값 바뀐경우 자식에서 값 재렌더링 되나 자식에서 부모는안됨  -->
           <button @click="post.isLike = !post.isLike">toggle</button>
 
@@ -27,14 +27,14 @@
 </template>
 
 <script>
-import PostItem from './PostItem.vue';
+import AppCard from './AppCard.vue';
 import PostCreate from './PostCreate.vue';
 import LabelInput from './LabelInput.vue';
 import Mybtn from './MyBtn.vue';
 import {reactive, ref} from 'vue';
 export default {
   components: {
-    PostItem, PostCreate, LabelInput, Mybtn,
+    AppCard, PostCreate, LabelInput, Mybtn,
   },
 
   setup() {
