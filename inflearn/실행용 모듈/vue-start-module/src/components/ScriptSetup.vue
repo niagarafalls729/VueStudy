@@ -14,14 +14,21 @@
 
       </div>
     </div>
+    <hr />
+    <Child ref="child"></Child>
+    <template v-if="child">{{ child.msg }} </template>
+    <template v-if="child">{{ child.msg2 }} </template>
+    <hr />
   </main>
 </template>
 
 <script setup>
 import AppCard from './setup/AppCard.vue';
+import Child from './setup/Child.vue';
+import axios from 'axios';
 import { ref } from 'vue';
 const toggleLikeOfSun = (post) => {
-  console.log('부모값의 post.isLike', post.isLike);
+  console.log('부모: post.isLike', post.isLike);
   post.isLike = !post.isLike;
 };
 const posts = ref([
@@ -30,6 +37,10 @@ const posts = ref([
   { id: 1, title: '제목1', contents: '내용1', isLike: true, type: 'news' },
 ]);
 
+const child = ref('');
+console.log(child.value);
+const response = await axios('https://dummy.restapiexample.com/api/v1/employees');
+console.log(response);
 
 </script>
 

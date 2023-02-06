@@ -36,21 +36,21 @@ const props = defineProps({
     required: true,
   },
 });
+const emit = defineEmits(['toggleLike']);
+
+console.log('자식: setup인자로받기', props.isLike);
+
 const toggleLike = () => {
   emit('toggleLike');
-  console.log('자식 toggleLike의 props', props.isLike);
+  console.log('자식: toggleLike의 props', props.isLike);
 };
-const emit = defineEmits(['toggleLike']);
-console.log('자식 setup인자로받기', props.isLike);
 
 const isLikeComputed = computed(() => {
-  console.log('computed prpos.isLike', props.isLike);
+  console.log('자식: computed prpos.isLike', props.isLike);
   return props.isLike ? 'btn btn-info' : 'btn-outline-danger';
 });
 
-const typeName = computed(() => {
-  return props.type === 'news' ? '뉴스' : '공지사항';
-});
+const typeName = computed(() => props.type === 'news' ? '뉴스' : '공지사항');
 
 </script>
 

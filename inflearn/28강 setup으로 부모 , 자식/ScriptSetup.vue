@@ -21,7 +21,7 @@
 import AppCard from './setup/AppCard.vue';
 import { ref } from 'vue';
 const toggleLikeOfSun = (post) => {
-  console.log('부모값의 post.isLike', post.isLike);
+  console.log('부모: post.isLike', post.isLike);
   post.isLike = !post.isLike;
 };
 const posts = ref([
