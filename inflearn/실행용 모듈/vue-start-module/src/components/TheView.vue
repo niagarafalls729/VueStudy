@@ -1,17 +1,12 @@
 <template>
   <main>
-    <TemplateRefs></TemplateRefs>
+    <ScriptSetup></ScriptSetup>
   </main>
 </template>
 
-<script>
-import TemplateRefs from './TemplateRefs.vue';
-export default {
-  components: { TemplateRefs },
-  setup() {
-    return {};
-  },
-};
+<script setup>
+import ScriptSetup from './ScriptSetup.vue';
+
 </script>
 
 <style lang="scss" scoped>
