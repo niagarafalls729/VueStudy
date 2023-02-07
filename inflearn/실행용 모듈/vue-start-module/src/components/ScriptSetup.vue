@@ -18,6 +18,7 @@
     <Child ref="child"></Child>
     <template v-if="child">{{ child.msg }} </template>
     <template v-if="child">{{ child.msg2 }} </template>
+    <button @click="axiosEvent">ddd</button>
     <hr />
   </main>
 </template>
@@ -40,8 +41,13 @@ const posts = ref([
 const child = ref('');
 console.log(child.value);
 const response = await axios('https://dummy.restapiexample.com/api/v1/employees');
-console.log(response);
-
+console.log('response', response);
+// const axiosEvent = async () => {
+//   console.log('DD');
+//   const response = await axios('https://dummy.restapiexample.com/api/v1/employees').then((response) => {
+//     console.log('DD');
+//   });
+// };
 </script>
 
 <style lang="scss" scoped>
