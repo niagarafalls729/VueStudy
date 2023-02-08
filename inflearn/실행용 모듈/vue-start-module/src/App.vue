@@ -6,10 +6,9 @@
 </template>
 
 <script>
-import TheNav from "./components/TheNav.vue";
-import TheView from "./components/TheView.vue";
+import TheView from './components/TheView.vue';
 export default {
-  components: { TheNav, TheView },
+  components: { TheView },
   setup() {
     return {};
   },
@@ -17,4 +16,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>
